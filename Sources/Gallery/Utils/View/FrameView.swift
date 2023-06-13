@@ -4,6 +4,7 @@ class FrameView: UIView {
 
   lazy var label: UILabel = self.makeLabel()
   lazy var gradientLayer: CAGradientLayer = self.makeGradientLayer()
+    lazy var btn: UIButton = self.makeButton()
 
   // MARK: - Initialization
 
@@ -21,11 +22,14 @@ class FrameView: UIView {
 
   private func setup() {
     layer.addSublayer(gradientLayer)
-//    layer.borderColor = Config.Grid.FrameView.borderColor.cgColor
-//    layer.borderWidth = 3
 
+      addSubview(btn)
+      btn.g_pinR_l()
+      btn.g_pin(size: CGSize(width: 22, height: 22))
+      
     addSubview(label)
-    label.g_pinCenter()
+      label.g_pinR_l()
+      label.g_pin(size: CGSize(width: 22, height: 22))
   }
 
   // MARK: - Layout
@@ -55,4 +59,13 @@ class FrameView: UIView {
 
     return layer
   }
+    
+    private func makeButton() -> UIButton {
+        let btn = UIButton()
+        btn.setImage(Config.Camera.nomalBtnImage, for: .normal)
+        btn.setImage(Config.Camera.selectedBtnImage, for: .selected)
+        btn.setTitleColor(UIColor.red, for: .selected)
+        btn.titleLabel?.font = Config.Font.Main.regular.withSize(14)
+        return btn
+    }
 }

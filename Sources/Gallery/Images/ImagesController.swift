@@ -253,8 +253,11 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
     if let index = cart.images.firstIndex(of: item) {
       cell.frameView.g_quickFade()
       cell.frameView.label.text = "\(index + 1)"
+        cell.frameView.btn.isSelected = true
+        cell.btn.isHidden = true
     } else {
       cell.frameView.alpha = 0
+        cell.btn.isHidden = false
     }
   }
 }

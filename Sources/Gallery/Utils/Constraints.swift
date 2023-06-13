@@ -73,6 +73,10 @@ extension UIView {
     g_pin(on: .centerX, view: view)
     g_pin(on: .centerY, view: view)
   }
+    func g_pinR_l(view: UIView? = nil) {
+        g_pin(on: .top, view: view, constant: 2)
+        g_pin(on: .right, view: view, constant: -2)
+    }
 }
 
 // https://github.com/hyperoslo/Sugar/blob/master/Sources/iOS/Constraint.swift

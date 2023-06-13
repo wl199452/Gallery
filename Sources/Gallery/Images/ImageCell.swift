@@ -6,7 +6,7 @@ class ImageCell: UICollectionViewCell {
   lazy var imageView: UIImageView = self.makeImageView()
   lazy var highlightOverlay: UIView = self.makeHighlightOverlay()
   lazy var frameView: FrameView = self.makeFrameView()
-
+    lazy var btn: UIButton = self.makeButton()
   // MARK: - Initialization
 
   override init(frame: CGRect) {
@@ -48,6 +48,8 @@ class ImageCell: UICollectionViewCell {
     imageView.g_pinEdges()
     frameView.g_pinEdges()
     highlightOverlay.g_pinEdges()
+    btn.g_pinR_l()
+    btn.g_pin(size: CGSize(width: 22, height: 22))
   }
 
   // MARK: - Controls
@@ -75,4 +77,12 @@ class ImageCell: UICollectionViewCell {
 
     return frameView
   }
+    private func makeButton() -> UIButton {
+        let btn = UIButton()
+        btn.setImage(Config.Camera.nomalBtnImage, for: .normal)
+        btn.setImage(Config.Camera.selectedBtnImage, for: .selected)
+        btn.setTitleColor(UIColor.red, for: .selected)
+        btn.titleLabel?.font = Config.Font.Main.regular.withSize(14)
+        return btn
+    }
 }
