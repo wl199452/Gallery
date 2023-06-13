@@ -41,7 +41,7 @@ class ImageCell: UICollectionViewCell {
   // MARK: - Setup
 
   func setup() {
-    [imageView, frameView, highlightOverlay].forEach {
+    [imageView, btn, frameView, highlightOverlay].forEach {
       self.contentView.addSubview($0)
     }
 
