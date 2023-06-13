@@ -208,7 +208,10 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
 
     if let selectedItem = cart.video , selectedItem == item {
       cell.frameView.g_quickFade()
+      cell.frameView.btn.isSelected = true
+      cell.btn.isHidden = true
     } else {
+      cell.btn.isHidden = false
       cell.frameView.alpha = 0
     }
   }

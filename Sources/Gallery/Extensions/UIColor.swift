@@ -13,7 +13,7 @@ extension UIColor {
 
     static var backgroundColor: UIColor {
         if #available(iOS 13, *) {
-            return systemBackground
+            return black
         } else {
             return white
         }

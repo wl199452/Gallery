@@ -40,6 +40,10 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     }
   }
 
+  open override var preferredStatusBarStyle: UIStatusBarStyle {
+      return .lightContent
+  }
+    
   open override var prefersStatusBarHidden : Bool {
     return Config.showStatusBar
   }
@@ -48,21 +52,21 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
 
   func makeImagesController() -> ImagesController {
     let controller = ImagesController(cart: cart)
-    controller.title = "Gallery.Images.Title".g_localize(fallback: "PHOTOS")
+    controller.title = "图片"//"Gallery.Images.Title".g_localize(fallback: "PHOTOS")
 
     return controller
   }
 
   func makeCameraController() -> CameraController {
     let controller = CameraController(cart: cart)
-    controller.title = "Gallery.Camera.Title".g_localize(fallback: "CAMERA")
+    controller.title = "相机"//"Gallery.Camera.Title".g_localize(fallback: "CAMERA")
 
     return controller
   }
 
   func makeVideosController() -> VideosController {
     let controller = VideosController(cart: cart)
-    controller.title = "Gallery.Videos.Title".g_localize(fallback: "VIDEOS")
+    controller.title = "视频"//"Gallery.Videos.Title".g_localize(fallback: "VIDEOS")
 
     return controller
   }
