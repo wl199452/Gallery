@@ -21,8 +21,8 @@ class FrameView: UIView {
 
   private func setup() {
     layer.addSublayer(gradientLayer)
-    layer.borderColor = Config.Grid.FrameView.borderColor.cgColor
-    layer.borderWidth = 3
+//    layer.borderColor = Config.Grid.FrameView.borderColor.cgColor
+//    layer.borderWidth = 3
 
     addSubview(label)
     label.g_pinCenter()
