@@ -255,9 +255,17 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
       cell.frameView.label.text = "\(index + 1)"
         cell.frameView.btn.isSelected = true
         cell.btn.isHidden = true
+        cell.frameView.btnAction = {
+            let index = self.gridView.collectionView.indexPath(for: cell)
+            self.collectionView(self.gridView.collectionView, didSelectItemAt: index!)
+        }
     } else {
       cell.frameView.alpha = 0
         cell.btn.isHidden = false
+        cell.btnAction = {
+            let index = self.gridView.collectionView.indexPath(for: cell)
+            self.collectionView(self.gridView.collectionView, didSelectItemAt: index!)
+        }
     }
   }
 }

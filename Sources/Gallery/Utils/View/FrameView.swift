@@ -5,7 +5,7 @@ class FrameView: UIView {
   lazy var label: UILabel = self.makeLabel()
   lazy var gradientLayer: CAGradientLayer = self.makeGradientLayer()
     lazy var btn: UIButton = self.makeButton()
-
+    var btnAction: (() -> ())?
   // MARK: - Initialization
 
   override init(frame: CGRect) {
@@ -67,6 +67,12 @@ class FrameView: UIView {
         btn.setImage(Config.Camera.selectedBtnImage, for: .selected)
         btn.setTitleColor(UIColor.red, for: .selected)
         btn.titleLabel?.font = Config.Font.Main.regular.withSize(14)
+        btn.addTarget(self, action: #selector(clickAction), for: .touchUpInside)
         return btn
+    }
+    @objc func clickAction(){
+        if btnAction != nil {
+            btnAction!()
+        }
     }
 }

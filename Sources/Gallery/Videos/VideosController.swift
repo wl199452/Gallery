@@ -210,9 +210,17 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
       cell.frameView.g_quickFade()
       cell.frameView.btn.isSelected = true
       cell.btn.isHidden = true
+        cell.frameView.btnAction = {
+            let index = self.gridView.collectionView.indexPath(for: cell)
+            self.collectionView(self.gridView.collectionView, didSelectItemAt: index!)
+        }
     } else {
       cell.btn.isHidden = false
       cell.frameView.alpha = 0
+        cell.btnAction = {
+            let index = self.gridView.collectionView.indexPath(for: cell)
+            self.collectionView(self.gridView.collectionView, didSelectItemAt: index!)
+        }
     }
   }
 }

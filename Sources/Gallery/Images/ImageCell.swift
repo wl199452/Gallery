@@ -7,6 +7,7 @@ class ImageCell: UICollectionViewCell {
   lazy var highlightOverlay: UIView = self.makeHighlightOverlay()
   lazy var frameView: FrameView = self.makeFrameView()
     lazy var btn: UIButton = self.makeButton()
+    var btnAction: (() -> ())?
   // MARK: - Initialization
 
   override init(frame: CGRect) {
@@ -83,6 +84,12 @@ class ImageCell: UICollectionViewCell {
         btn.setImage(Config.Camera.selectedBtnImage, for: .selected)
         btn.setTitleColor(UIColor.red, for: .selected)
         btn.titleLabel?.font = Config.Font.Main.regular.withSize(14)
+        btn.addTarget(self, action: #selector(clickAction), for: .touchUpInside)
         return btn
+    }
+    @objc func clickAction(){
+        if btnAction != nil {
+            btnAction!()
+        }
     }
 }
